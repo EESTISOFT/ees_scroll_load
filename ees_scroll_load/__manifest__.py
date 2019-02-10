@@ -27,6 +27,6 @@ Made with love.
     ],	
     'qweb': ['static/src/xml/ees_scroll_load.xml'],
     'installable': True,
-    'application': False,
+    'application': True,
     'auto_install': False
 }
