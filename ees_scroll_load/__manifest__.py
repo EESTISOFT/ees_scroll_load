@@ -1,7 +1,7 @@
 {
     'name': 'scrolload',
     'version': '1.0.0.0',
-    'author': 'Eestisoft - Hideki Andrea Yamamoto',
+    'author': 'Eestisoft,''Hideki Andrea Yamamoto',
     'category': 'Productivity',
     'website': 'http://www.eestisoft.com',
     'sequence': 2,
