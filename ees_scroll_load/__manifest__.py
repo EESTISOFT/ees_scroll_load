@@ -1,5 +1,5 @@
 {
-    'name': 'scrolload',
+    'name': 'EESTISOFT Scroll Load',
     'version': '1.0.0.0',
     'author': 'Eestisoft,''Hideki Andrea Yamamoto',
     'category': 'Productivity',
