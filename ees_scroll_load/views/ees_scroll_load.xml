@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="scroll_load_backend_assets" name="scroll_load_backend_assets" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<link rel="stylesheet" href="/ees_scroll_load/static/src/css/ees_scroll_load.css"/>
+			<script type="text/javascript" src="/ees_scroll_load/static/src/js/ees_scroll_load.js"></script>
+		</xpath>
+    </template>
+</odoo>
