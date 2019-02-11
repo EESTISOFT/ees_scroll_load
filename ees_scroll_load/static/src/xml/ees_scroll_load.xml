@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates t-name="ees_scroll_load_link"><t t-extend="Pager">
 	<t t-jquery="span.o_pager_limit" t-operation="replace">
-		<a href="#" onclick="ees.scroll_load.loadall(this)" title="Load all records" class="ees_scroll_load_all_link"><span class="o_pager_limit"></span></a>
+		<a href="javascript:return false;" onclick="ees.scroll_load.loadall(this);return false;" title="Load all records" class="ees_scroll_load_all_link"><span class="o_pager_limit"></span></a>
 	</t>
 </t></templates>
