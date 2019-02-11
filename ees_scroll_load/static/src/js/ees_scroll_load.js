@@ -1,6 +1,6 @@
 // -*- coding: utf-8 -*-
 // © 2018 Eestisoft - Hideki Yamamoto
-// License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+// License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 odoo.define('ees_scroll_load.overloads', function (require) {
 "use strict";
@@ -19,11 +19,11 @@ BasicController.include({_updatePager:function(){this._super();
 try{ees.test=false;delete ees.test}catch{window.ees={};}
 ees.scroll_load={loading:false,
 	loadall:function(linkelm){
-		jQuery('.o_pager_value').click();setTimeout(()=>{
+		jQuery('.o_pager_value').click();setTimeout(()=>{jQuery('.o_pager_value .o_input').focus()
 			var x=jQuery('.o_pager_value .o_input').get(0);
 			var intval=parseInt(linkelm.firstChild.innerHTML);
 			var doit=true;
-			if(intval>5000){if(!confirm('This search includes '+intval+' records and could request some minutes, do you want to proceed?')){doit=false}}
+			if(intval>5000){if(!confirm('This search includes '+intval+' records and could require some minutes, do you want to proceed?')){doit=false}}
 			if(doit){x.value='1-'+linkelm.firstChild.innerHTML;}			
 			jQuery('.o_pager_value .o_input').blur()},100);		
 	},
@@ -35,19 +35,15 @@ ees.scroll_load={loading:false,
 		doit=true;try{elm2=view.el.parentNode}catch(exx){doit=false;};
 		if(doit){elm2=jQuery(elm2);elm2.off('scroll');elm2.on('scroll',(ev)=>{ees.scroll_load.checkscroll(ev,view)});}	
 	},
-	checkscroll:function(ev,view){
-		var CT=view.renderer.state.count;var DC=view.renderer.state.data.length;
-		console.log(CT+		'*****'+DC);
+	checkscroll:function(ev,view){var CT=view.renderer.state.count;var DC=view.renderer.state.data.length;
 		if(DC<CT){var oh=ev.currentTarget.offsetHeight;var h=ev.currentTarget.scrollHeight;var t=ev.currentTarget.scrollTop;var bh=oh/(h/oh);
 			if((h-t)<(bh*(h/oh))+100){ees.scroll_load.loadmore(view.renderer)}}},
 	loadmore:function(listrenderer){
-		console.log('check3');
 		if(!ees.scroll_load.loading){ees.scroll_load.loading=true;var doit=true;
 		var elm=jQuery(listrenderer.$el.get()).get(0);try{elm=elm.parentNode.parentNode.parentNode.parentNode;}catch(ex){doit=false;};
 		if(doit){jQuery('.o_pager_value').click();
 		setTimeout(()=>{
 			var x=jQuery(elm).find('.o_pager_value .o_input').get(0);
-			console.log(x.value);
 			var intval=parseInt(document.getElementsByClassName('o_pager_limit')[0].innerHTML);
 			var xx=x.value.split('-');
 			var newint=parseInt(xx[1]);
