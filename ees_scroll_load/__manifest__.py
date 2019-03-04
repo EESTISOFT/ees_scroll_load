@@ -21,7 +21,7 @@ Steps:
 Made with love.
 
     """,
-	'images':['static/description/thumbs.png'],
+	'images':['static/description/thumb.png'],
     'depends': ['web'],
     'data': [
 		'views/ees_scroll_load.xml',
